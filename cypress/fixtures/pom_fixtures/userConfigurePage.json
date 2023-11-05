@@ -1,0 +1,44 @@
+{
+    "userFullName": "Ivan Ivanov",
+    "userDescription": "I am the best QA",
+    "sidePanelNameLink": "Configure",
+    "url": "configure",
+    "SidePanelAdminTasks": {
+        "Names": [
+            "People",
+            "Status",
+            "Builds",
+            "Configure",
+            "My Views",
+            "Credentials"
+        ],
+        "amountTasks" : 6
+    },
+    "SidePanelUserTasks": {
+        "Names": [
+            "People",
+            "Status",
+            "Builds",
+            "Configure",
+            "My Views",
+            "Delete"
+        ],
+        "amountTasks" : 6
+    },
+    "configureSectionsList": {
+        "Names": [
+            "Credentials",
+            "Extended Email Job Watching",
+            "My Views",
+            "Notification URL",
+            "SSH Public Keys",
+            "Session Termination",
+            "Setting for search",
+            "User Defined Time Zone",
+            "E-mail",
+            "Password",
+            "API Token"
+        ],
+        "amountTasks" : 11
+    }
+}

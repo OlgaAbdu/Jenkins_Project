@@ -1,0 +1,44 @@
+{
+    "freestyleProjectNewName" : "New Freestyle Project",
+    "headerText" : "Project ",
+    "errorMessage" : "Error",
+    "message": "The new name is the same as the current name.",
+    "description": "New description",
+    "editDescription": " Edit Description",
+	"disabledProjectNotify": "This project is currently disabled",
+    "freestyleProjectName1": "FreestyleProjectName1",
+    "freestyleProjectName2": "FreestyleProjectName2",
+    "changeNameBtnEditDescription": "Edit description",
+    "messageChanges": "No changes in any of the builds.",
+    "massegeChanges2": "No builds.",
+    "deleteConfirmationWindowMessage": "Delete the Project ‘FreestyleProjectJob’?",
+
+  "sidePanel":[
+        "Status",
+        "Changes",
+        "Workspace",
+        "Build Now",
+        "Configure",
+        "Delete Project",
+        "Rename"
+       ],
+
+    "freestyleDropdownItems": [
+        "Changes",
+        "Workspace",
+        "Build Now" ,
+        "Configure" ,
+        "Delete Project",
+        "Rename"
+        ],
+
+        "arrows":{
+            "arrowUp": "↑",
+            "arrowDown": "↓"
+        },
+        
+        "buildsNumbers":{
+            "build_1": "#1",
+            "build_2": "#2"
+        } 
+}

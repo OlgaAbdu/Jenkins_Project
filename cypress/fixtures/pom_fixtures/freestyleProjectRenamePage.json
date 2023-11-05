@@ -1,0 +1,5 @@
+{
+    "freestyleProjectRenameWarningMessage": "The new name is the same as the current name.",
+    "invalidCharacters": ["!", "@", "#", "$", "%", "^", "&", "*", "?", ">", "<", "/",  ";", ":", "|", "[", "]"],
+    "invalidCharacterMessage": "is an unsafe character"
+}

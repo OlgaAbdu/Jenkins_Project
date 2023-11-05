@@ -1,0 +1,19 @@
+{
+   "declarativeOnlineDocumentationURL": "https://www.jenkins.io/doc/book/pipeline/syntax/",
+   "onlineDocumentationURL": "https://www.jenkins.io/doc/book/pipeline/",
+   "examplesReferenceUrl":"https://www.jenkins.io/doc/pipeline/examples/",
+   "generatedPipelineScriptValue":"init",
+   "sampleStepOption":"echo: Print Message",
+   "snippetGeneratorMessage":"Hello",
+   "pipelineSyntaxOptions": [
+      "Back",
+      "Snippet Generator",
+      "Declarative Directive Generator",
+      "Declarative Online Documentation",
+      "Steps Reference",
+      "Global Variables Reference",
+      "Online Documentation",
+      "Examples Reference",
+      "IntelliJ IDEA GDSL"
+      ]
+}

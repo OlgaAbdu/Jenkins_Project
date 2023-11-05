@@ -1,0 +1,33 @@
+{
+    "userDropdownMenuItems": [
+        "Builds",
+        "Configure",
+        "My Views",
+        "Credentials"
+    ],
+    "inputText": "text",
+    "searchBoxPlaceholder": "Search (CTRL+K)",
+    "inputLowerCase": "e",
+    "inputUpperCase": "E",
+    "version": {
+        "number" : "Jenkins 2.387.2",
+        "link" : "https://www.jenkins.io/",
+        "rgb" : "rgb(20, 20, 31)"
+    },
+    "jenkinsEndPointWebSite" : "jenkins.io",
+    "pageTitle" : "Jenkins",
+    "userDropdownMenuItemsUrl" : [
+        "/builds",
+        "/configure", 
+        "/my-views/view/all/",
+        "/credentials/"
+    ],
+    "title": [
+        "[Jenkins]",
+        "Configuration [Jenkins]",
+        "Dashboard [Jenkins]",
+        "Credentials [Jenkins]"
+    ],
+    "colorLink" : "rgb(5, 135, 212)",
+    "orangeNotificationCounter" : "rgb(255, 152, 0)"
+}

@@ -1,0 +1,228 @@
+/// <reference types="cypress" />
+
+import HomePage from "../../pageObjects/HomePage";
+import FreestyleProjectConfigurePage from "../../pageObjects/FreestyleProjectConfigurePage";
+import FreestyleProjectPage from "../../pageObjects/FreestyleProjectPage";
+import HeaderAndFooter from "../../pageObjects/HeaderAndFooter";
+import newItemPageData from "../../fixtures/pom_fixtures/newItemPage.json";
+import freestyleProjectConfigData from "../../fixtures/pom_fixtures/freestyleProjectConfigure.json";
+import gitHubPageData from "../../fixtures/pom_fixtures/gitHubPage.json";
+import freestyleProjectPageData from "../../fixtures/pom_fixtures/freestyleProjectPage.json";
+
+describe('freestyleProjectConfigure', () => {
+    const homePage = new HomePage();
+    const headerAndFooter = new HeaderAndFooter();
+    const configPage = new FreestyleProjectConfigurePage();
+    const freestyleProjectPage = new FreestyleProjectPage();
+
+    beforeEach('Create Freestyle project', () => {
+        cy.createFreestyleProject(newItemPageData.freestyleProjectName);
+    })
+
+    it('AT_12.08.02 | Add link on GitHub and verify it', () => {
+        homePage
+            .hoverAndClickProjectDrpDwnBtn(newItemPageData.freestyleProjectName)
+            .clickProjectNameDropdownConfigureLink()
+            .checkGitHubProjectCheckbox()
+            .typeProjectUrl(freestyleProjectConfigData.gitHubProjectURL)
+            .clickSaveBtnAndGoFreestyleProjectPage()
+            .clickGitHubSideMenuLink()
+            .checkUrl()
+            .getGitHubHeaderAuthor()
+            .should('include.text', gitHubPageData.gitHubHeaderAuthor);
+    });
+
+    it('AT_12.08.01 | Freestyle project > Add description to Freestyle project through Congure in side menu', () => {
+        homePage
+            .clickFreestyleProjectNameLink()
+            .clickConfigureSideMenuLink()
+            .typeDescriptionInputField(freestyleProjectConfigData.description)
+            .clickSaveBtnAndGoFreestyleProject()
+            .getFreestyleProjectDescription()
+            .should('contain.text', freestyleProjectConfigData.description);
+    })
+
+    freestyleProjectConfigData.postBuildActions.forEach((actionName, idx) => {
+        it(`AT_12.14.01 | Verify user can choose ${actionName} from the dropdown menu list <Post-build Actions> while configuring the freestyle project`, () => {
+            homePage
+                .clickFreestyleProjectNameLink()
+                .clickConfigureSideMenuLink()
+                .clickLeftSideMenuPostBuldActionsBtn()
+                .clickAddPostBuildActionBtn()
+                .selectPostBuildActionDropDownMenuItem(idx)
+                .checkPostBuildActionWindowHeaderName(actionName)
+                .clickSaveBtnAndGoFreestyleProject()
+                .clickConfigureSideMenuLink()
+                .clickLeftSideMenuPostBuldActionsBtn()
+                .getPostBuildActionWindow()
+                .should('exist')
+        })
+    });
+
+    freestyleProjectConfigData.buildSteps.forEach((buildStep, idx) => {
+        it(`AT_12.13.01 | Verify user can choose ${buildStep} from the dropdown menu list <Add build step> while configuring the freestyle project`, () => {
+            homePage
+                .clickFreestyleProjectNameLink()
+                .clickConfigureSideMenuLink()
+                .clickLeftSidePanelBuildStepsBtn()
+                .clickAddBuildStepBtn()
+                .selectBuildStepFromMenuListItem(idx)
+                .checkBuilderWindowHeaderName(buildStep)
+                .clickSaveBtnAndGoFreestyleProject()
+                .clickConfigureSideMenuLink()
+                .clickLeftSidePanelBuildStepsBtn()
+                .getBuilderWindow()
+                .should('be.visible')
+        })
+    });
+
+    freestyleProjectConfigData.AdvancedBtnCheckboxList.forEach((el, idx) => {
+        it(`AT_12.05_009 | Verify that ${el} checkbox below Advanced button is visible and can be checked`, () => {
+            homePage
+                .hoverAndClickProjectDrpDwnBtn(newItemPageData.freestyleProjectName)
+                .clickProjectNameDropdownConfigureLink()
+                .clickAdvancedBtn()
+                .checkAdvancedBtnChbox(idx)
+                .clickSaveBtnAndGoFreestyleProjectPage()
+                .clickConfigureSideMenuLink()
+                .clickAdvancedBtn()
+                .getAdvancedBtnChboxList(idx)
+                .should('be.visible')
+                .and('be.checked');
+        })
+    })
+
+    it('AT_12.05_002 | Freestyle project > Configure > Apply configurations changes', () => {
+        const data = freestyleProjectConfigData.buildPeriodicallyProject;
+
+        cy.openFreestyleProjectConfigurePage();
+        configPage
+            .typeDescriptionInputField(data.description)
+            .clickDiscardOldBuildsLabel()
+            .typeMaxNumberOfBuildsToKeepInputField(data.maxBuilds)
+            .clickBuildTriggersOptionLabel()
+            .typeScheduleInputField(data.schedule)
+            .selectBuildEnvironmentOption(data.buildEnvironmentOption)
+            .clickAddBuildStepBtn()
+            .selectScriptOption(data.scriptOption)
+            .typeScriptCodeInputField(data.scriptText)
+            .clickApplyBtn()
+            .getNotificationMessageText().should('equal', data.applyConfirmMessage);
+
+        cy.openHomePage();
+        cy.openFreestyleProjectConfigurePage();
+
+        configPage.getProjectEnabled().should("have.attr", "value", "true");
+        configPage.getDescriptionInputField().should("have.text", data.description);
+        configPage.getDiscardOldBuildsCheck().should("be.checked");
+        configPage.getStrategy().should("have.text", data.strategyOption);
+        configPage.getMaxNumberOfBuildsToKeepInputField().should("have.attr", "value", data.maxBuilds.toString());
+        configPage.getSourceCodeNoneRadioBtn().should("have.text", data.sourceCodeManagement);
+        configPage.getBuildTriggersCheck().should("be.checked");
+        configPage.getScheduleInputField().should("have.text", data.schedule);
+        configPage.getAddTimestampsCheck().should("be.checked");
+        configPage.getBuildStepName().should("contain.text", data.scriptOption);
+        configPage.getScriptText().should("have.text", data.scriptText);
+    });
+
+    it('AT_12.05_007| Freestyle project > Configure > User can build the scheduled project manually', function () {
+        const data = freestyleProjectConfigData.buildPeriodicallyProject;
+
+        cy.openFreestyleProjectConfigurePage();
+        configPage.setConfigurationsForScheduledFreestyleProject(
+            data.description,
+            data.maxBuilds,
+            data.schedule1,
+            data.buildEnvironmentOption,
+            data.scriptOption,
+            data.scriptText
+        )
+
+        cy.openHomePage();
+        headerAndFooter
+            .getCurrentUserName().should("be.visible").and("not.be.empty")
+            .then(($userName) => {
+                cy.wrap($userName.text()).as('currentUserName');
+            })
+        homePage
+            .clickFreestyleProjectNameLink()
+            .clickBuildNowSideMenuLink(newItemPageData.freestyleProjectName)
+            .getBuildsHistoryTableRows()
+            .should("not.have.length", 2, {timeout: 10000})
+            .then(() => {
+                cy.reload()
+            })
+           .then(() => {
+                freestyleProjectPage
+                    .clickLastBuildLink()
+                    .getBuildStartedByText()
+                    .should("equal", `${data.startedByUser}${this.currentUserName}`);
+           });
+    })
+
+    it('AT_12.10.02 | Verify GiT tooltip text box is visible and displays correct information when User is hovering over tooltip', function (){
+      cy.openFreestyleProjectConfigurePage()
+
+        configPage
+        .clickSourceCodeManagementBtn()
+        .hoverTooltipGitHelpBtn()
+        .checkTooltipTextBox()
+    })
+
+    it('AT_12.16.01 | Freestyle project > Verify possibility to disable the project on the Configure page', () => {
+        cy.openFreestyleProjectConfigurePage()
+
+        configPage
+            .clickEnableDisableProjectOption()
+            .clickSaveBtnAndGoFreestyleProject()
+            .getDisabledProgectWarning()
+            .should('be.visible').and('contain', freestyleProjectPageData.disabledProjectNotify)
+    });
+
+    it('AT_12.16.02 | Freestyle project > Verify possibility to enable the project on the Configure page', () => {
+        cy.disableFreestyleProjectOnConfigurePage()
+
+        cy.openFreestyleProjectConfigurePage()
+        configPage
+            .clickEnableDisableProjectOption()
+            .clickSaveBtnAndGoFreestyleProject()
+            .getDisabledProgectWarning()
+            .should('not.exist')
+    });
+
+    it('AT_12.15.02 | Freestyle project > Configure > Save configuration updates with Save button', () => {
+        const data = freestyleProjectConfigData.buildPeriodicallyProject;
+
+        cy.openFreestyleProjectConfigurePage();
+        configPage
+            .typeDescriptionInputField(data.description)
+            .clickDiscardOldBuildsLabel()
+            .typeMaxNumberOfBuildsToKeepInputField(data.maxBuilds)
+            .clickBuildTriggersOptionLabel()
+            .typeScheduleInputField(data.schedule)
+            .selectBuildEnvironmentOption(data.buildEnvironmentOption)
+            .clickAddBuildStepBtn()
+            .selectScriptOption(data.scriptOption)
+            .typeScriptCodeInputField(data.scriptText)
+            .clickSaveBtnAndGoFreestyleProject()
+            .verifyFreestyleProjectStatusPageURL()
+            .getFreestyleProjectHeader()
+            .should('have.text', freestyleProjectPageData.headerText + newItemPageData.freestyleProjectName);
+        
+        freestyleProjectPage
+            .clickConfigureSideMenuLink();
+    
+        configPage.getProjectEnabled().should("have.attr", "value", "true");
+        configPage.getDescriptionInputField().should("have.text", data.description);
+        configPage.getDiscardOldBuildsCheck().should("be.checked");
+        configPage.getStrategy().should("have.text", data.strategyOption);
+        configPage.getMaxNumberOfBuildsToKeepInputField().should("have.attr", "value", data.maxBuilds.toString());
+        configPage.getSourceCodeNoneRadioBtn().should("have.text", data.sourceCodeManagement);
+        configPage.getBuildTriggersCheck().should("be.checked");
+        configPage.getScheduleInputField().should("have.text", data.schedule);
+        configPage.getAddTimestampsCheck().should("be.checked");
+        configPage.getBuildStepName().should("contain.text", data.scriptOption);
+        configPage.getScriptText().should("have.text", data.scriptText);
+    });    
+
+})

@@ -1,0 +1,21 @@
+{
+  "nodeBuiltInName": "(built-in)",
+  "buildInHeader": "Built-In Node",
+  "buildBuiltInUrl": "/manage/computer/(built-in)/",
+  "labelsHeading" : "Labels",
+  "projectsTiedToBuiltInNodeHeading": "Projects tied to Built-In Node",
+  "validValueNumberOfExecutors" : 12,
+  "mixedInputNumberOfExecutors" : "1 2#3a4A5 ",
+  "mixedValueNumberOfExecutors" : 12345,
+  "defaultValueNumberOfExecutors" : 0,
+  "evenValueNumberOfExecutors" : 2,
+  "invalidValueNumberOfExecutors" : [-5, 1.1],
+  "invalidValuesNumberOfExecutorsToSave": [" ", "-1", "0.5", "-1000", "a", "ABz", "!@#", "$", "*?", "/", ":"],
+  "errorsNumberOfExecutors" : [
+    "Number may not be negative",
+    "Not a number"
+  ],
+  "errorEmptyNumberOfExecutors" : "Not a number",
+  "valueToCopy": "123",
+  "validSingleLabel": "Label1"
+}

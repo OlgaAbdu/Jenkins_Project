@@ -1,0 +1,22 @@
+{
+    "disableMessage": "This Organization Folder is currently disabled",
+    "description": "The description was added to the organization folder.",
+    "displayName": "The Display Name was added to the Organization Folder",
+    
+    "sidePanelMenuItemsOrgFolderConfig": [
+        "General",
+        "Projects",
+        "Scan Organization Folder Triggers",
+        "Orphaned Item Strategy",
+        "Appearance",
+        "Health metrics",
+        "Properties"
+    ],
+
+    "healthMetricsType":"Child item with worst health",
+
+    "appearanceIconOption":[
+        "Default Icon",
+        "Metadata Folder Icon"]
+}
+

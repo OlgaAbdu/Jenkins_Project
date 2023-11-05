@@ -1,0 +1,13 @@
+{
+    "error": "Error",
+    "currentNameMsg": "The new name is the same as the current name",
+    "disableProjectMsg": "This project is currently disabled",
+    "enableBtnText": "Enable",
+    "disableBtnText": "Disable Project",
+    "invalidCharactersMsg": "is an unsafe character",
+    "invalidCharacters": ["@", "#", "$", "%", "^", "&", "*", "?", ">", "<", "/", ";", "|"],
+    "errorMessage" : "No name is specified",
+    "currentDisableMsg": "This Multibranch Pipeline is currently disabled",
+    "disableMultiBrPipelineBtnText": "Disable Multibranch Pipeline",
+    "emptyNameErrorMsg": "No name is specified"
+}

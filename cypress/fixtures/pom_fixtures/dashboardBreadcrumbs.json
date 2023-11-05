@@ -1,0 +1,106 @@
+{
+  "dashboardDropdownMenu": [
+    "New Item",
+    "People",
+    "Build History",
+    "Manage Jenkins",
+    "My Views"
+  ],
+  "alertWindowMessages": [
+    "Reload Configuration from Disk: are you sure?"
+  ],
+  "dashboardBtn": "Dashboard",
+  "endPointUrl": [
+    "/all/newJob",
+    "/asynchPeople/",
+    "/builds",
+    "/manage/",
+    "/my-views/view/all/"
+  ],
+  "manageJenkinsDropdownItems": [
+    "Configure System",
+    "Global Tool Configuration",
+    "Manage Plugins",
+    "Manage Nodes and Clouds",
+    "Configure Global Security",
+    "Credentials",
+    "Credential Providers",
+    "Manage Users",
+    "System Information",
+    "System Log",
+    "Load Statistics",
+    "About Jenkins",
+    "Manage Old Data",
+    "Reload Configuration from Disk",
+    "Jenkins CLI",
+    "Script Console",
+    "Prepare for Shutdown"
+  ],
+  "manageJenkinsDropdownEndpoint": [
+    "/manage/configure",
+    "/manage/configureTools/",
+    "/manage/pluginManager/",
+    "/manage/computer/",
+    "/manage/configureSecurity/",
+    "/manage/credentials/",
+    "/manage/configureCredentials/",
+    "/manage/securityRealm/",
+    "/manage/systemInfo",
+    "/manage/log/",
+    "/manage/load-statistics",
+    "/manage/about/",
+    "/manage/administrativeMonitor/OldData/manage",
+    "",
+    "/manage/cli/",
+    "/manage/script",
+    "/manage/prepareShutdown/"
+  ],
+  "breadcrumbscFolderDropdown": [
+    "Configure",
+    "New Item",
+    "Delete Folder",
+    "People",
+    "Build History",
+    "Rename",
+    "Credentials"
+  ], 
+  "breadcrumbscFreestyleProjectDropdown": [
+    "Changes",
+    "Workspace",
+    "Build Now",
+    "Configure",
+    "Delete Project",
+    "Rename"
+  ],
+  "breadcrumbscMulticonfigurationprojectDropdow":[
+    "Changes",
+    "Workspace",
+    "Build Now",
+    "Configure",
+    "Delete Multi-configuration project",
+    "Rename"
+    
+   ],
+   "breadcrumbsPipelineProjectDropdown":[
+    "Changes",
+    "Build Now",
+    "Configure",
+    "Delete Pipeline",
+    "Full Stage View",
+    "Rename",
+    "Pipeline Syntax"
+   ],
+
+   "breadcrumbsMultibranchPipelineDropdown":[
+    "Configure",
+    "Scan Multibranch Pipeline Log",
+    "Multibranch Pipeline Events", 
+    "Delete Multibranch Pipeline",
+    "People",
+    "Build History",
+    "Rename",
+    "Pipeline Syntax",
+    "Credentials"
+   ]
+
+}

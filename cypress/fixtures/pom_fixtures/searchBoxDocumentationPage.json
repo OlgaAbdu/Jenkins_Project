@@ -1,0 +1,21 @@
+{
+    "searchBoxDocumentationPageURL": "http://www.jenkins.io/doc/book/using/searchbox/",
+
+    "dataCapCase": ["Log", "LOG", "lOg"],
+    "testdata": "All Jenkins Logs",
+    "setNamesForNewProject": [
+		{
+		  "name": "freestyle1"
+		},
+		{
+		  "name": "freestyle2"
+		}
+	  ],
+	  "searchBoxInput" : "freestyle",
+	  "multibranchPipeline": {
+		"name": "Multibranch Pipeline1",
+		"searchPage": "Search for 'Multibranch Pipeline1'"
+	},
+	"builtInNodeText": "Built-In Node",
+	"singleCharacter": "e"
+}

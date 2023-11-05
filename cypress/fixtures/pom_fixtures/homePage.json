@@ -1,0 +1,53 @@
+{
+    "homePageHeader": "Welcome to Jenkins!",
+    "descriptionText": "Jenkins Projects",
+    "newDescriptionText": "Updated text: Jenkins Projects",
+    "deletePipelineConfirmText": "Delete Pipeline: are you sure?",
+    "sidePanelItems": [
+        "New Item",
+        "People",
+        "Build History",
+        "Manage Jenkins",
+        "My Views"
+    ],
+    "endPointUrl": [
+        "/all/newJob",
+        "/asynchPeople/",
+        "/builds",
+        "/manage/",
+        "/my-views/view/all/"
+    ],
+    "sRem" : "0.2rem",
+    "mRem" : "0.4rem",
+    "lRem" : "0.55rem",
+
+    "messages" :{
+        "windowConfirm" : "Delete Project: are you sure?"
+    },
+
+    "learnMoreAboutDistributedBuildsLinkName" : "Learn more about distributed builds",
+
+    "HeadersTableJobs":[
+        "S",
+        "W",
+        "Name",
+        "Last Success",
+        "Last Failure",
+        "Last Duration"
+    ],
+
+    "IconLegendName": "Icon legend",
+
+    "configureCloudLinkName": "Configure a cloud",
+
+    "subSectionOfMainPanelNames" : [
+        "Start building your software project",
+        "Set up a distributed build"
+    ],
+    "tooltipWtext": "Weather report showing aggregated status of recent builds",
+
+    "createJobLinkName": "Create a job",
+    
+    "SetUpAgentLinkName": "Set up an agent"
+
+}

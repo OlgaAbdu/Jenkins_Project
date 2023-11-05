@@ -1,0 +1,9 @@
+{
+    "peoplePageHeader" : "People",
+    "peopleEndPointURL":  "/asynchPeople/",
+    "newUserName": "NewUser",
+    "peopleTabText" : "People",
+    "highlitedTabClass" : "task-link--active",
+    "highlitedTabClassBackGroundColor" : "rgba(175, 175, 207, 0.224)"
+}
+ 

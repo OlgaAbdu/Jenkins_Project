@@ -1,0 +1,34 @@
+{
+    "description": "New test data",
+    "editDescription": "Edited test data",
+    "user": {
+        "name": "NewUser",
+        "password": "123",
+        "confirmPassword": "123",
+        "emailAddress": "qa@test.com",
+        "description": "Created first time a new description",
+        "dashboard": "Dashboard"
+    }, 
+    "userAddDescriptionBtn": "Add description",
+    "editDescriptionBtnText": "Edit description",
+    "userArray": [
+         {
+            "name": "anna_Arbour",
+            "password": "123",
+            "confirmPassword": "123",
+            "emailAddress": "anna@test.com"
+        }, 
+        {
+            "name": "marilyn_Monroe",
+            "password": "123",
+            "confirmPassword": "123",
+            "emailAddress": "mary@test.com"
+        }, 
+        {
+            "name": "wonderboy",
+            "password": "123",
+            "confirmPassword": "123",
+            "emailAddress": "wonderboy@test.com"
+        }
+    ] 
+}
